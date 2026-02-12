@@ -43,7 +43,7 @@
 <div class="progress-bar bg-danger" id="formProgress" style="width:50%"></div>
 </div>
 
-<form id="registerForm" novalidate>
+<form id="registerForm" action="<%=request.getContextPath()%>/register" method="POST" novalidate>
 
 <!-- STEP 1 -->
 <div class="form-step active">
@@ -71,7 +71,7 @@ Next →
 <input type="text" class="form-control bg-transparent text-white" name="mobileNumber" placeholder="Mobile Number">
 </div>
 <div class="mb-3">
-<input type="text" class="form-control bg-transparent text-white" name="city" placeholder="City">
+<input type="text" class="form-control bg-transparent text-white" name="country" placeholder="country">
 </div>
 
 <div class="mb-3">

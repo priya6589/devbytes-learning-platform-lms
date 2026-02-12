@@ -65,7 +65,7 @@ $(function () {
     email:{required:true,email:true},
     password:{required:true,minlength:6},
     mobileNumber:{required:true,digits:true,minlength:10},
-    city:{required:true},
+    country:{required:true},
     qualification:{required:true}
     },
 
@@ -74,7 +74,7 @@ $(function () {
     email:"Valid email required",
     password:"Minimum 6 characters",
     mobileNumber:"Valid mobile required",
-    city:"City required",
+    country:"country required",
     qualification:"Qualification required"
     }
 

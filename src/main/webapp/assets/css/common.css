@@ -102,3 +102,50 @@
   background: rgba(255,255,255,.1);
 }
 
+/* ===== AUTH ALERT (DevBytes Style) ===== */
+.auth-alert {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border-left: 4px solid;
+    color: #fff;
+    font-size: 14px;
+    animation: slideFade 0.4s ease;
+    box-shadow: 0 0 60px rgb(255 255 255 / 5%);
+}
+
+.auth-alert-icon {
+    font-size: 18px;
+}
+
+/* ERROR */
+.auth-alert.error {
+    border-color: #dc3545;
+    box-shadow: 0 10px 60px rgb(255 0 24 / 35%);
+}
+
+/* SUCCESS */
+.alert-success {
+    box-shadow: 0px 0px 60px rgba(40, 167, 69, 0.35);
+    color: #199c5e;
+    background-color: #d1e7dd;
+    border-color: #0ddc7e;
+}
+
+/* Animation */
+@keyframes slideFade {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
