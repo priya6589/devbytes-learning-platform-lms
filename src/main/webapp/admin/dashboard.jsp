@@ -1,5 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
-<%@ page import="com.lms.entities.Message" %>
+<%@ page import="com.lms.entities.MessageEntity" %>
+<%@ page  import="com.lms.entities.AdminEntity"%>
 
 <!DOCTYPE html>
 <html>
@@ -13,6 +14,11 @@
 </head>
 
 <body>
+
+<%
+    AdminEntity admin =
+        (AdminEntity) session.getAttribute("currentAdmin");
+%>
  <!-- header -->
 <%@include file="/admin/partials/header.jsp"%>
 

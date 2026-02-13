@@ -2,14 +2,14 @@ package com.lms.entities;
 
 import java.io.Serializable;
 
-public class Message implements Serializable {
+public class MessageEntity implements Serializable {
     private String content;
     private String type;
     private String cssClass;
 
 //    Constructor...
 
-    public Message(String content, String type, String cssClass) {
+    public MessageEntity(String content, String type, String cssClass) {
         this.content = content;
         this.type = type;
         this.cssClass = cssClass;

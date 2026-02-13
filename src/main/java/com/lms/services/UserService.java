@@ -8,6 +8,8 @@ import com.lms.utils.PasswordUtil;
 
 import java.sql.Connection;
 
+import static com.lms.utils.HelperUtil.isEmpty;
+
 public class UserService {
     private Connection con;
     private UserDao userDao;
@@ -65,9 +67,7 @@ public class UserService {
             throw new IllegalArgumentException("Qualification is required");
     }
 
-    private boolean isEmpty(String s){
-        return s == null || s.trim().isEmpty();
-    }
+
 
     public UserEntity login(String email, String password) {
         UserEntity user = null;

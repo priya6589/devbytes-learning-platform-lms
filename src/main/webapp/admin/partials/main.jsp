@@ -12,25 +12,25 @@
           <div class="col-lg-2 col-md-3 col-sm-4">
             <a href="#" class="card">
               <h1>10</h1>
-              <p>AMD</p>
+              <p>Networking Course</p>
             </a>
           </div>
           <div class="col-lg-2 col-md-3 col-sm-4">
             <a href="#" class="card">
               <h1>20</h1>
-              <p>Alexa</p>
+              <p>Programming Course</p>
             </a>
           </div>
           <div class="col-lg-2 col-md-3 col-sm-4">
             <a href="#" class="card">
               <h1>300</h1>
-              <p>Amazon</p>
+              <p>DSA Course</p>
             </a>
           </div>
           <div class="col-lg-2 col-md-3 col-sm-4">
             <a href="#" class="card">
               <h1>25</h1>
-              <p>Alipay</p>
+              <p>Database Course</p>
             </a>
           </div>
         </div>

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
-<%@ page import="com.lms.entities.Message" %>
+<%@ page import="com.lms.entities.MessageEntity" %>
 
 <!DOCTYPE html>
 <html>
@@ -22,13 +22,13 @@
                 </div>
 
                 <div class="card-body text-center">
-                     <form action="<%=request.getContextPath()%>/login" method="POST">
+                     <form action="<%=request.getContextPath()%>/admin/login" method="POST">
                           <div class="mb-3">
-                             <input type="email" class="form-control bg-transparent text-white" name="email" placeholder="Email">
+                             <input type="email" class="form-control bg-transparent" name="email" placeholder="Email">
                           </div>
 
                           <div class="mb-3">
-                             <input type="password" class="form-control bg-transparent text-white" name="password" placeholder="Password">
+                             <input type="password" class="form-control bg-transparent" name="password" placeholder="Password">
                           </div>
 
                           <button type="submit" class="btn btn-primary w-100">Login</button>

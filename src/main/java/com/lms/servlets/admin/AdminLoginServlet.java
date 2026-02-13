@@ -1,24 +1,26 @@
-package com.lms.servlets;
+package com.lms.servlets.admin;
 
 import com.lms.config.ConnectionProvider;
+import com.lms.entities.AdminEntity;
 import com.lms.entities.MessageEntity;
-import com.lms.entities.UserEntity;
-import com.lms.services.UserService;
+import com.lms.services.AdminService;
 
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 
-@WebServlet("/login")
-public class LoginServlet extends HttpServlet {
-
-    private UserService userService;
+@WebServlet("/admin/login")
+public class AdminLoginServlet extends HttpServlet {
+    private AdminService adminService;
 
     @Override
-    public void init() {
+    public void init(){
         Connection con = ConnectionProvider.getConnection();
-        userService = new UserService();
+        adminService = new AdminService();
     }
 
     @Override
@@ -26,28 +28,28 @@ public class LoginServlet extends HttpServlet {
         try {
             String email = req.getParameter("email");
             String password = req.getParameter("password");
-            UserEntity user = userService.login(email, password);
+            AdminEntity admin = adminService.login(email, password);
 
             HttpSession session = req.getSession();
-            if(user != null){
-                session.setAttribute("currentUser", user);
+            if(admin != null){
+                session.setAttribute("currentAdmin", admin);
                 session.setAttribute("msg",
                         new MessageEntity("Login successful","success","alert-success")
                 );
-                resp.sendRedirect(req.getContextPath() + "/frontend/index.jsp");
+                resp.sendRedirect(req.getContextPath() + "/admin/dashboard.jsp");
 
             } else {
                 session.setAttribute("msg",new MessageEntity("Invalid credentials","error",""));
 
                 resp.sendRedirect(req.getContextPath()
-                        + "/frontend/auth/login.jsp?error=invalid");
+                        + "/admin/login.jsp?error=invalid");
 
             }
         } catch (Exception e){
             e.printStackTrace();
             System.out.println("Something went wrong!...please try again later."+e.getMessage());
             resp.sendRedirect(req.getContextPath()
-                    + "/frontend/auth/login.jsp?error=server");
+                    + "/admin/login.jsp?error=server");
         }
     }
 }

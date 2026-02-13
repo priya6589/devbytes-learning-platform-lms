@@ -1,5 +1,5 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
-<%@ page import="com.lms.entities.Message" %>
+<%@ page import="com.lms.entities.MessageEntity" %>
 
 <!DOCTYPE html>
 <html>
@@ -38,7 +38,7 @@
                 <div class="card bg-dark border-danger shadow-lg">
                     <div class="card-body p-4">
                         <%
-                            Message msg = (Message) session.getAttribute("msg");
+                            MessageEntity msg = (MessageEntity) session.getAttribute("msg");
                             if (msg != null) {
                         %>
                         <div class="alert <%= msg.getType() %> text-center auth-alert fade show">

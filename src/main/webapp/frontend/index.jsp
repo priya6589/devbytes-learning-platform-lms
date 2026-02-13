@@ -1,5 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ page import="com.lms.entities.UserEntity" %>
+<%@ page import="com.lms.entities.MessageEntity"%>
 
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,7 @@
 <%
     UserEntity u = (UserEntity) session.getAttribute("currentUser");
 
-    // 🔐 AUTH GUARD
+    // AUTH GUARD
     if (u == null) {
         response.sendRedirect(request.getContextPath() + "/frontend/auth/login.jsp");
         return;
@@ -49,8 +50,7 @@
 
     <!-- FLASH MESSAGE -->
     <%
-        com.lms.entities.Message msg =
-                (com.lms.entities.Message) session.getAttribute("msg");
+       MessageEntity msg = (MessageEntity) session.getAttribute("msg");
         if (msg != null) {
     %>
     <div class="alert <%= msg.getCssClass() %> auth-alert text-center fade show">

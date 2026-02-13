@@ -1,4 +1,5 @@
-package com.lms.servlets;
+package com.lms.servlets.admin;
+
 
 import com.lms.entities.MessageEntity;
 
@@ -6,8 +7,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-@WebServlet("/logout")
-public class LogoutServlet extends HttpServlet {
+@WebServlet("/admin/logout")
+public class AdminLogoutServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
@@ -18,6 +19,7 @@ public class LogoutServlet extends HttpServlet {
             if (session != null) {
                 session.invalidate();
             }
+
             Cookie cookie = new Cookie("JSESSIONID", null);
             cookie.setMaxAge(0);
             cookie.setPath("/");
@@ -34,13 +36,13 @@ public class LogoutServlet extends HttpServlet {
             );
 
             resp.sendRedirect(req.getContextPath()
-                    + "/frontend/auth/login.jsp");
+                    + "/admin/login.jsp");
 
         } catch (Exception e) {
             e.printStackTrace();
 
             resp.sendRedirect(req.getContextPath()
-                    + "/frontend/auth/login.jsp?error=logout");
+                    + "/admin/login.jsp?error=logout");
         }
     }
 }

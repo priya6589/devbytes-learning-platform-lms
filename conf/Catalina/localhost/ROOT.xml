@@ -2,8 +2,15 @@
 <Context docBase="C:/Users/priya/IdeaProjects/devbytes-learning-platform-lms/src/main/webapp">
   <Resources cacheMaxSize="10240">
     <PreResources base="C:/Users/priya/IdeaProjects/devbytes-learning-platform-lms/target/classes" className="org.apache.catalina.webresources.DirResourceSet" webAppMount="/WEB-INF/classes"/>
-    <PostResources base="C:/Users/priya/.m2/repository/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/mysql-connector-j-8.0.33.jar"/>
-    <PostResources base="C:/Users/priya/.m2/repository/com/google/protobuf/protobuf-java/3.21.9/protobuf-java-3.21.9.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/protobuf-java-3.21.9.jar"/>
+    <PostResources base="C:/Users/priya/.m2/repository/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/mysql-connector-j-8.3.0.jar"/>
+    <PostResources base="C:/Users/priya/.m2/repository/com/google/protobuf/protobuf-java/3.25.1/protobuf-java-3.25.1.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/protobuf-java-3.25.1.jar"/>
+    <PostResources base="C:/Users/priya/.m2/repository/org/flywaydb/flyway-core/10.15.0/flyway-core-10.15.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/flyway-core-10.15.0.jar"/>
+    <PostResources base="C:/Users/priya/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-toml/2.15.2/jackson-dataformat-toml-2.15.2.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jackson-dataformat-toml-2.15.2.jar"/>
+    <PostResources base="C:/Users/priya/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.2/jackson-databind-2.15.2.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jackson-databind-2.15.2.jar"/>
+    <PostResources base="C:/Users/priya/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.2/jackson-annotations-2.15.2.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jackson-annotations-2.15.2.jar"/>
+    <PostResources base="C:/Users/priya/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.2/jackson-core-2.15.2.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jackson-core-2.15.2.jar"/>
+    <PostResources base="C:/Users/priya/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/gson-2.10.1.jar"/>
+    <PostResources base="C:/Users/priya/.m2/repository/org/flywaydb/flyway-mysql/10.15.0/flyway-mysql-10.15.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/flyway-mysql-10.15.0.jar"/>
     <PostResources base="C:/Users/priya/.m2/repository/org/mindrot/jbcrypt/0.4/jbcrypt-0.4.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jbcrypt-0.4.jar"/>
   </Resources>
 </Context>
