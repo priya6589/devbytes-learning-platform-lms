@@ -19,66 +19,52 @@ public class AdminAuthFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
 
-        try {
-            String contextPath = req.getContextPath();
-            String requestURI = req.getRequestURI();
+        String contextPath = req.getContextPath();
+        String requestURI = req.getRequestURI();
+        String path = requestURI.substring(contextPath.length());
 
-            // Remove context path for easier matching
-            String path = requestURI.substring(contextPath.length());
+        HttpSession session = req.getSession(false);
+        AdminEntity admin = null;
 
-            HttpSession session = req.getSession(false);
-            AdminEntity admin = null;
-
-            if (session != null) {
-                Object obj = session.getAttribute("currentAdmin");
-                if (obj instanceof AdminEntity) {
-                    admin = (AdminEntity) obj;
-                }
-            }
-
-            boolean isLoggedIn = (admin != null);
-
-            // Allowed URLs without login
-            boolean isLoginPage = path.equals("/admin/login.jsp");
-            boolean isLoginServlet = path.equals("/admin/login");
-
-            // Allow static resources
-            boolean isStaticResource =
-                    path.startsWith("/assets/") ||
-                            path.endsWith(".css") ||
-                            path.endsWith(".js") ||
-                            path.endsWith(".png") ||
-                            path.endsWith(".jpg") ||
-                            path.endsWith(".jpeg") ||
-                            path.endsWith(".gif") ||
-                            path.endsWith(".woff") ||
-                            path.endsWith(".woff2");
-
-            if (isStaticResource) {
-                chain.doFilter(request, response);
-                return;
-            }
-
-            // Case 1: Logged in + trying login page
-            if (isLoggedIn && (isLoginPage || isLoginServlet)) {
-                resp.sendRedirect(contextPath + "/admin/dashboard.jsp");
-                return;
-            }
-
-            // Case 2: Not logged in + accessing protected page
-            if (!isLoggedIn && !(isLoginPage || isLoginServlet)) {
-                resp.sendRedirect(contextPath + "/admin/login.jsp");
-                return;
-            }
-
-            // Continue normally
-            chain.doFilter(request, response);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-
-            // Safe fallback redirect
-            resp.sendRedirect(req.getContextPath() + "/admin/login.jsp?error=auth");
+        if (session != null) {
+            admin = (AdminEntity) session.getAttribute("currentAdmin");
         }
+
+        boolean isLoggedIn = (admin != null);
+
+        boolean isLoginPage = path.equals("/admin/login.jsp");
+        boolean isLoginServlet = path.equals("/admin/login");
+
+        boolean isStaticResource =
+                path.startsWith("/assets/") ||
+                        path.contains("/partials/") ||
+                        path.endsWith(".css") ||
+                        path.endsWith(".js") ||
+                        path.endsWith(".png") ||
+                        path.endsWith(".jpg") ||
+                        path.endsWith(".jpeg") ||
+                        path.endsWith(".gif") ||
+                        path.endsWith(".woff") ||
+                        path.endsWith(".woff2");
+
+        if (isStaticResource) {
+            chain.doFilter(request, response);
+            return;
+        }
+
+        // Not logged in
+        if (!isLoggedIn && !(isLoginPage || isLoginServlet)) {
+            resp.sendRedirect(contextPath + "/admin/login.jsp");
+            return;
+        }
+
+        // Logged in and opening login page
+        if (isLoggedIn && (isLoginPage || isLoginServlet)) {
+            resp.sendRedirect(contextPath + "/admin/dashboard");
+            return;
+        }
+
+        chain.doFilter(request, response);
     }
 }
+

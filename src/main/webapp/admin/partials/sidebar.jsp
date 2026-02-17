@@ -10,32 +10,32 @@
       </li>
 
       <li class="nav-item">
-        <a href="/admin/dashboard.jsp" class="nav-link">
+        <a href="<%=request.getContextPath()%>/admin/dashboard" class="nav-link">
           <i class="fa fa-users"></i>
           <span>User Management</span>
         </a>
       </li>
       <li class="nav-item">
-         <a href="/admin/dashboard.jsp" class="nav-link">
+         <a href="<%=request.getContextPath()%>/admin/dashboard" class="nav-link">
            <i class="fa fa-code-fork"></i>
            <span>Role Management</span>
          </a>
       </li>
       <li class="nav-item">
-         <a href="/admin/dashboard.jsp" class="nav-link">
+         <a href="<%=request.getContextPath()%>/admin/dashboard" class="nav-link">
            <i class="fa fa-cogs"></i>
            <span>Permission Management</span>
          </a>
       </li>
       <hr/>
       <li class="nav-item">
-        <a href="/admin/dashboard.jsp" class="nav-link">
+        <a href="<%=request.getContextPath()%>/admin/dashboard" class="nav-link">
           <i class="fa fa-paperclip"></i>
           <span>Categories</span>
         </a>
       </li>
       <li class="nav-item">
-          <a href="/admin/dashboard.jsp" class="nav-link">
+          <a href="<%=request.getContextPath()%>/admin/dashboard" class="nav-link">
             <i class="fa fa-book"></i>
             <span>Courses</span>
           </a>

@@ -36,7 +36,7 @@ public class AdminLoginServlet extends HttpServlet {
                 session.setAttribute("msg",
                         new MessageEntity("Login successful","success","alert-success")
                 );
-                resp.sendRedirect(req.getContextPath() + "/admin/dashboard.jsp");
+                resp.sendRedirect(req.getContextPath() + "/admin/dashboard");
 
             } else {
                 session.setAttribute("msg",new MessageEntity("Invalid credentials","error",""));
